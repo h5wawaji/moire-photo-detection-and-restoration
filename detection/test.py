@@ -11,7 +11,7 @@ from myDataset import MyDataset
 import PIL.Image as Image
 from torch.utils.data import DataLoader, Dataset
 
-target_path = "../../graph_for_classification/moire/10.jpg"
+target_path = "test.jpg"
 
 def default_loader(target_path):
     labels = []

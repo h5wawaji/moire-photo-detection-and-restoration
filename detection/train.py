@@ -7,18 +7,18 @@ from torch.optim import SGD
 from torch.utils.data import DataLoader
 from torchvision.transforms import ToTensor
 from torch.optim.lr_scheduler import LambdaLR
-from myDataset import MyDataset
+from myDataset2 import MyDataset
 
 if __name__ == '__main__':
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     batch_size = 10
     init_lr = 0.001
-    path1 = "../dataset/train/gt/"
-    path2 = "../dataset/train/moire/"
-    path3 = "../dataset/test/gt/"
-    path4 = "../dataset/test/moire/"    
-    train_dataset = MyDataset(path1, path2, train=True, size = 3000)
-    test_dataset = MyDataset(path3, path4, train=False, size = 160)
+    path1 = "D:/wwwroot/github/moire_detection/checkpoint/test_recapture_bak/natural/"
+    path2 = "D:/wwwroot/github/moire_detection/checkpoint/test_recapture_bak/recapture/"
+    path3 = "D:/wwwroot/github/moire_detection/checkpoint/test_recapture_bak/validate_natural"
+    path4 = "D:/wwwroot/github/moire_detection/checkpoint/test_recapture_bak/validate_re/"
+    train_dataset = MyDataset(path1, path2, train=True, size = 100)
+    test_dataset = MyDataset(path3, path4, train=False, size = 9)
     train_loader = DataLoader(train_dataset, batch_size=batch_size, shuffle=True)
     test_loader = DataLoader(test_dataset, batch_size=batch_size, shuffle=True)
     # dict to define model parameters
